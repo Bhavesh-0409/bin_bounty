@@ -1,5 +1,7 @@
 .rules-container {
-  height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20px 0;
   background: url("/bg-theme.gif") no-repeat center center/cover;
   display: flex;
   align-items: center;
@@ -12,8 +14,10 @@
   backdrop-filter: blur(8px); /* glass effect */
   padding: 30px;
   border-radius: 12px;
-  width: 80%;
+  width: 90%;
   max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
   text-align: center;
   color: #00ffcc;
   font-family: monospace;
@@ -39,6 +43,7 @@
   font-size: 18px;
   line-height: 1.6;
   white-space: pre-line;
+  text-align: left;
 
   /* glow effect */
   text-shadow: 0 0 6px rgba(0, 255, 200, 0.7);

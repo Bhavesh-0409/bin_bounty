@@ -1,188 +1,12 @@
 import { useState, useEffect } from "react";
 import RulesScreen from "../../components/RulesScreen";
 import { rulesText } from "./rules";
+import puzzleData from "./puzzles.json";
 
 const C = 4;
 const N = 4;
 
-function permute(arr) {
-  if (arr.length === 0) return [[]];
-  let result = [];
-  for (let i = 0; i < arr.length; i++) {
-    let rest = permute(arr.slice(0, i).concat(arr.slice(i + 1)));
-    for (let r of rest) {
-      result.push([arr[i], ...r]);
-    }
-  }
-  return result;
-}
 
-const perms = permute([0, 1, 2, 3]);
-
-const themes = [
-  {
-    name: "Cyber Heist",
-    categories: ["Hackers", "Tools", "Targets", "Motives"],
-    items: [
-      ["Cipher", "Ghost", "Nova", "Apex"],
-      ["ZeroDay", "Phisher", "Rootkit", "DDoS"],
-      ["BankServer", "GovtDB", "SecureGrid", "CryptoVault"],
-      ["Money", "Chaos", "Espionage", "Revenge"]
-    ]
-  },
-  {
-    name: "Deep Web",
-    categories: ["Vendors", "Malwares", "Payments", "Origins"],
-    items: [
-      ["VendorX", "SilkRat", "OnionGod", "ProxyX"],
-      ["Exploits", "Botnets", "DataDumps", "Ransom"],
-      ["Bitcoin", "Monero", "CashDrop", "WireX"],
-      ["Russia", "China", "Brazil", "USA-Anon"]
-    ]
-  },
-  {
-    name: "AI Rogue",
-    categories: ["AI Cores", "Payloads", "Host Nodes", "Triggers"],
-    items: [
-      ["SARA", "OMNI", "HAL-X", "NEMESIS"],
-      ["Mutator", "Deleter", "Encrypter", "Crawler"],
-      ["Mainframe", "Satellite", "Pacemaker", "Drone"],
-      ["EMP", "Sandbox", "Patch", "Killswitch"]
-    ]
-  }
-];
-
-const allSolutions = [];
-for (let p1 of perms) {
-  for (let p2 of perms) {
-    for (let p3 of perms) {
-      allSolutions.push([[0, 1, 2, 3], p1, p2, p3]);
-    }
-  }
-}
-
-function getRandomSolution() {
-  let sol = [[0, 1, 2, 3]];
-  for (let c = 1; c < C; c++) sol.push(perms[Math.floor(Math.random() * perms.length)]);
-  return sol;
-}
-
-function generateClues(targetSolution) {
-  let allClues = [];
-  for (let c1 = 0; c1 < C; c1++) {
-    for (let c2 = c1 + 1; c2 < C; c2++) {
-      for (let i = 0; i < N; i++) {
-        for (let j = 0; j < N; j++) {
-          let isMatch = false;
-          for (let b = 0; b < N; b++) {
-            if (targetSolution[c1][b] === i && targetSolution[c2][b] === j) {
-              isMatch = true;
-              break;
-            }
-          }
-          allClues.push({ type: isMatch ? "POS" : "NEG", c1, i, c2, j });
-        }
-      }
-    }
-  }
-  return allClues;
-}
-
-function filterSolutions(sols, clue) {
-  return sols.filter((sol) => {
-    let match = false;
-    for (let b = 0; b < N; b++) {
-      if (sol[clue.c1][b] === clue.i && sol[clue.c2][b] === clue.j) {
-        match = true;
-        break;
-      }
-    }
-    return clue.type === "POS" ? match : !match;
-  });
-}
-
-function formatClue(clue, theme) {
-  const item1 = theme.items[clue.c1][clue.i];
-  const item2 = theme.items[clue.c2][clue.j];
-  if (clue.type === "POS") {
-    const p = [
-      `The vector involving '${item1}' absolutely involved '${item2}'.`,
-      `Target profiling links '${item1}' directly to '${item2}'.`,
-      `Forensics found '${item1}' and '${item2}' on the same network layer.`
-    ];
-    return p[Math.floor(Math.random() * p.length)];
-  } else {
-    const n = [
-      `'${item1}' has strictly zero connection to '${item2}'.`,
-      `The trace for '${item1}' decisively excludes '${item2}'.`,
-      `Intelligence shows '${item1}' and '${item2}' were never combined.`
-    ];
-    return n[Math.floor(Math.random() * n.length)];
-  }
-}
-
-function generatePuzzleEngine(excludeThemeIndex = -1) {
-  let themeIdx = Math.floor(Math.random() * themes.length);
-  if (excludeThemeIndex !== -1 && themes.length > 1) {
-    while (themeIdx === excludeThemeIndex) {
-      themeIdx = Math.floor(Math.random() * themes.length);
-    }
-  }
-  const theme = themes[themeIdx];
-  const target = getRandomSolution();
-  let availableClues = generateClues(target);
-
-  availableClues.sort(() => Math.random() - 0.5);
-  availableClues.sort((a, b) => {
-    if (a.type === "POS" && b.type === "NEG") return -1;
-    if (a.type === "NEG" && b.type === "POS") return 1;
-    return 0;
-  });
-
-  let currentSols = [...allSolutions];
-  let selectedClues = [];
-
-  for (let clue of availableClues) {
-    if (currentSols.length === 1) break;
-    const newSols = filterSolutions(currentSols, clue);
-    if (newSols.length < currentSols.length) {
-      if (clue.type === "POS" || (clue.type === "NEG" && Math.random() < 0.1)) {
-        currentSols = newSols;
-        selectedClues.push(clue);
-      }
-    }
-  }
-
-  if (currentSols.length > 1) {
-    for (let clue of availableClues) {
-      if (currentSols.length === 1) break;
-      const newSols = filterSolutions(currentSols, clue);
-      if (newSols.length < currentSols.length) {
-        currentSols = newSols;
-        selectedClues.push(clue);
-      }
-    }
-  }
-
-  const masterBountyIdx = Math.floor(Math.random() * N);
-
-  const answerVector = [];
-  for (let c = 0; c < C; c++) {
-    const idx = target[c][masterBountyIdx];
-    answerVector.push(theme.items[c][idx]);
-  }
-
-  return {
-    theme: theme,
-    themeIdx: themeIdx,
-    target: target,
-    clues: selectedClues.map(c => formatClue(c, theme)).sort(() => Math.random() - 0.5),
-    masterBountyIdx: masterBountyIdx,
-    answerVector: answerVector,
-    masterBountyName: theme.items[0][target[0][masterBountyIdx]],
-    id: `PUZZLE_${Math.random().toString(36).substr(2, 9).toUpperCase()}`
-  };
-}
 
 const hashStr = (str) => {
   let hash = 0;
@@ -215,16 +39,11 @@ function LogicalGrid({ onComplete }) {
 
   useEffect(() => {
     if (startGame && !puzzle) {
-      const generated = generatePuzzleEngine();
-      setPuzzle(generated);
+      const selected = puzzleData[Math.floor(Math.random() * puzzleData.length)];
+      setPuzzle(selected);
 
       // CHEAT LOG - For debugging/dev purposes to easily test the exact vector
-      const expectedVector = [];
-      for (let c = 0; c < C; c++) {
-        const expectedIndex = generated.target[c][generated.masterBountyIdx];
-        expectedVector.push(generated.theme.items[c][expectedIndex]);
-      }
-      console.log("[CHEAT] Expected Answer Vector: ", expectedVector.join(" -> "));
+      console.log("[CHEAT] Expected Answer Vector: ", selected.answerVector.join(" -> "));
     }
   }, [startGame, puzzle]);
 

@@ -1,18 +1,17 @@
 ﻿export const rulesText = `
-🔷 Logical Grid – Network Intrusion
+🔷 Logical Grid
 
 Objective:
-- Identify the correct 4-part attack vector for the Master Bounty.
-- A complete sequence requires exactly 1 item from each of the 4 categories.
-- Use the intercepted logical logs (clues) to deduce the exact mappings.
+- Find the correct combination of 4 items.
 
 How to play:
-- The clues will help you eliminate false pairings and find the exact Hidden Truth.
-- Select 1 item from each of the 4 columns to construct the suspected vector.
-- Your selection is automatically verified once 4 items are active.
+- There are 4 columns. You must select 1 item from each column.
+- Use the clues to figure out which items belong together.
+- The clues help you eliminate wrong pairings and narrow down the correct set.
+- Once you select 4 items (one from each column), your answer is checked automatically.
 
-Rules & Guidelines:
-- If your vector is incorrect, access will be denied and your selection will clear.
-- Re-evaluate your intercepted logs to find where you made a mistake.
-- Do not guess. You must deduce the entire grid mathematically to win. This will typically take ~3 minutes of logical deduction.
+Rules:
+- If your selection is wrong, it will reset.
+- Recheck the clues and adjust your choices.
+- The solution requires logical thinking—do not guess.
 `;
