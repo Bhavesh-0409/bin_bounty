@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
 import "./rules.css";
 
+const hashStr = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash.toString(36);
+};
+
 function RulesScreen({ rules, onStart }) {
-  const [displayedText, setDisplayedText] = useState("");
-  const [index, setIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(20);
+  const hash = hashStr(rules);
+  const hasSeen = !!localStorage.getItem(`rules_seen_${hash}`);
+
+  const [displayedText, setDisplayedText] = useState(hasSeen ? rules : "");
+  const [index, setIndex] = useState(hasSeen ? rules.length : 0);
+  const [timeLeft, setTimeLeft] = useState(hasSeen ? 0 : 20);
 
   // typing effect
   useEffect(() => {
@@ -33,7 +45,12 @@ function RulesScreen({ rules, onStart }) {
 
         <button 
           className="start-btn" 
-          onClick={() => timeLeft === 0 && onStart()}
+          onClick={() => {
+            if (timeLeft === 0) {
+              localStorage.setItem(`rules_seen_${hash}`, "true");
+              onStart();
+            }
+          }}
           style={timeLeft > 0 ? { opacity: 0.5, cursor: "not-allowed" } : {}}
         >
           {timeLeft > 0 ? `INITIALIZING... (${timeLeft}s)` : "START"}

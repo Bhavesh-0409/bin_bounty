@@ -5,8 +5,6 @@ export const rulesText = `
 Navigate through a hidden defense grid to reach the target terminal.
 
 🧩 How it works:
-- You are the ◈ symbol.
-- The target terminal is the ▣ symbol.
 - The path is invisible—you must reveal it by exploring.
 
 📜 Rules:

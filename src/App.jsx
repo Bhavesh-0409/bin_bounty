@@ -1,10 +1,8 @@
 // App.jsx
 // Main application
-
-import GameRouter from "./pages/GameRouter";
+import BlindMaze from "./games/blind-maze/BlindMaze";
 
 function App() {
-  return <GameRouter />;
+  return <BlindMaze />;
 }
-
 export default App;

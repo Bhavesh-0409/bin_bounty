@@ -1,33 +1,26 @@
 export const rulesText = `
-💀 DECEPTIVE SURVIVAL
-Reach the goal before your system collapses.
+💀 SURVIVE & REACH THE GOAL
 
-❤️ You start with 2 hearts. That’s all you get.
+❤️ You start with 2 hearts.
 
-Step on 0 → lose 1 heart
-Step on 1 → gain 1 heart (only the first time you visit it)
-Hearts never go above 2
+Step on 0 → lose 1 heart  
+Step on 1 → gain 1 heart (only once)  
+Max hearts = 2  
 
-⚠️ If your hearts reach 0 → SIGNAL LOST. You restart.
+⚠️ If hearts reach 0 → you restart.
 
-🎮 MOVEMENT
-Use the on-screen controls but DON'T trust them.
+🎮 MOVEMENT  
+Use the controls… but be careful.  
+They might not always work the way you expect.
 
-The controls are not what they seem.
+💣 SYSTEM CHANGES  
+After a few moves, something will change.  
+Stay alert and adapt quickly.
 
-💣 SYSTEM ANOMALIES
-Your system won’t stay stable for long.
+🧠 TIPS  
+Think before you move  
+Manage your hearts  
+Don’t trust patterns  
 
-After a few moves, something will change
-The way you move will suddenly feel wrong
-When this happens, adapt fast or you won’t make it.
-
-🧠 HOW TO WIN
-Plan your path carefully
-Use your hearts wisely
-Don’t rely on patterns
-Expect the unexpected
-
-🏁 Reach the goal to gain access
-Or fail… and start again.
+🏁 Reach the goal to win.
 `;

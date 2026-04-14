@@ -28,7 +28,7 @@ function oneDiff(a, b) {
 
 const PHASES = { CLUE: "clue", LADDER: "ladder", DONE: "done" };
 
-export default function Cross({ onComplete, onBack }) {
+export default function Cross({ onComplete, onBack, onShowRules }) {
   const [phase, setPhase] = useState(() => {
     const saved = localStorage.getItem("crossclimb_phase");
     return saved ? JSON.parse(saved) : PHASES.CLUE;
@@ -54,7 +54,14 @@ export default function Cross({ onComplete, onBack }) {
   const [order, setOrder] = useState(() => {
     const saved = localStorage.getItem("crossclimb_order");
     if (saved) return JSON.parse(saved);
-    return PUZZLE.clues.map((_, i) => i);
+    let init = PUZZLE.clues.map((_, i) => i);
+    let attempts = 0;
+    while (attempts < 10) {
+      init = shuffle(init);
+      if (init.join("") !== "01234" && init.join("") !== "43210") break;
+      attempts++;
+    }
+    return init;
   });
 
   const [dragOver, setDragOver] = useState(null);
@@ -139,17 +146,18 @@ export default function Cross({ onComplete, onBack }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', flex: 1, padding: '20px', width: '100%' }}>
-      <div style={{ alignSelf: 'flex-start', marginBottom: '20px', width: '100%', paddingLeft: '20px' }}>
+      <div style={{ alignSelf: 'flex-start', marginBottom: '20px', width: '100%', paddingLeft: '20px', display: 'flex', gap: '15px' }}>
         <button className="cyber-btn" onClick={onBack}>⬅ BACK TO GRID</button>
+        {onShowRules && <button className="cyber-btn" onClick={onShowRules}>VIEW BINGO RULES</button>}
       </div>
 
       <h2 style={{ textShadow: '0 0 10px #00ffe0', fontSize: '2.5rem', marginBottom: '10px' }}>CROSSCLIMB</h2>
 
-      <div style={{ backgroundColor: 'rgba(0,0,0,0.6)', border: '1px solid #ff00e0', padding: '15px', borderRadius: '8px', marginBottom: '20px', maxWidth: '500px', width: '100%', boxSizing: 'border-box' }}>
-        <h3 style={{ color: '#ff00e0', margin: '0 0 10px 0', textShadow: '0 0 5px #ff00e0' }}>PROTOCOLS:</h3>
-        <ul style={{ color: '#fff', margin: 0, paddingLeft: '20px', fontSize: '0.95rem', lineHeight: '1.4' }}>
-          <li style={{ marginBottom: '8px' }}><strong>PHASE 1:</strong> Select a sequence array, decipher the trace clue, and input the correct 4-letter decryption. Secure all 5 nodes.</li>
-          <li><strong>PHASE 2:</strong> Sort the decrypted nodes. Drag and drop to arrange them into a valid ladder where each adjacent word mutates by exactly <strong>ONE letter</strong>.</li>
+      <div style={{ backgroundColor: 'rgba(0,0,0,0.6)', border: '1px solid #ff00e0', padding: '15px', borderRadius: '8px', marginBottom: '20px', maxWidth: '600px', width: '100%', boxSizing: 'border-box' }}>
+        <h3 style={{ color: '#ff00e0', margin: '0 0 10px 0', textShadow: '0 0 5px #ff00e0' }}>HOW TO PLAY:</h3>
+        <ul style={{ color: '#fff', margin: 0, paddingLeft: '20px', fontSize: '0.95rem', lineHeight: '1.5' }}>
+          <li style={{ marginBottom: '8px' }}><strong>Step 1:</strong> Tap an empty row, read the clue below, and type the correct 4-letter word. Guess all 5 words to proceed.</li>
+          <li><strong>Step 2:</strong> Reorder the 5 words so that each word changes by exactly <strong>ONE letter</strong> from the word above it. Tap a word, then tap another to swap their positions!</li>
         </ul>
       </div>
 

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import RulesScreen from "../../components/RulesScreen";
 import { rulesText } from "./rules";
 
@@ -184,8 +184,19 @@ function generatePuzzleEngine(excludeThemeIndex = -1) {
   };
 }
 
+const hashStr = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash.toString(36);
+};
+
 function LogicalGrid({ onComplete }) {
-  const [startGame, setStartGame] = useState(false);
+  const [startGame, setStartGame] = useState(() => {
+    return !!localStorage.getItem(`rules_seen_${hashStr(rulesText)}`);
+  });
   const [puzzle, setPuzzle] = useState(null);
   const [selection, setSelection] = useState([null, null, null, null]);
   const [message, setMessage] = useState("Construct the exact attack vector.");
@@ -585,6 +596,13 @@ function LogicalGrid({ onComplete }) {
             </p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+            <button
+              onClick={() => setStartGame(false)}
+              className="btn-base"
+              style={{ color: '#22d3ee', backgroundColor: 'transparent', border: '1px solid #22d3ee' }}
+            >
+              VIEW RULES
+            </button>
             <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'right' }}>
               <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 'bold', color: '#34d399', animation: 'subtlePulse 2s infinite' }}>
                 Session Active

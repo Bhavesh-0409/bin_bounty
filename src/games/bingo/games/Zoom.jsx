@@ -8,7 +8,7 @@ import img6 from '../../../../img6.jpeg';
 
 const images = [img1, img2, img3, img4, img5, img6];
 
-export default function Zoom({ onComplete, onBack }) {
+export default function Zoom({ onComplete, onBack, onShowRules }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
@@ -45,17 +45,17 @@ export default function Zoom({ onComplete, onBack }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, padding: '20px' }}>
-      <div style={{ alignSelf: 'flex-start', marginBottom: '20px', width: '100%', paddingLeft: '20px' }}>
+      <div style={{ alignSelf: 'flex-start', marginBottom: '20px', width: '100%', paddingLeft: '20px', display: 'flex', gap: '15px' }}>
         <button className="cyber-btn" onClick={onBack}>⬅ BACK TO GRID</button>
+        {onShowRules && <button className="cyber-btn" onClick={onShowRules}>VIEW BINGO RULES</button>}
       </div>
 
       <h2 style={{ textShadow: '0 0 10px #00ffe0', fontSize: '2.5rem', marginBottom: '10px' }}>IMAGE ENHANCEMENT</h2>
       <div style={{ backgroundColor: 'rgba(0,0,0,0.6)', border: '1px solid #00ffe0', padding: '15px', borderRadius: '8px', marginBottom: '20px', maxWidth: '800px', width: '100%' }}>
-        <h3 style={{ color: '#00ffe0', margin: '0 0 10px 0', textShadow: '0 0 5px #00ffe0' }}>PROTOCOLS:</h3>
-        <ul style={{ color: '#fff', margin: 0, paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '1.4' }}>
-          <li>Examine the obscure image carefully.</li>
-          <li>Log the correct object identification to bypass the firewall.</li>
-          <li>If incorrect, the system will lock for 7 seconds to prevent brute force, and then auto-enhance the resolution.</li>
+        <h3 style={{ color: '#00ffe0', margin: '0 0 10px 0', textShadow: '0 0 5px #00ffe0' }}>HOW TO PLAY:</h3>
+        <ul style={{ color: '#fff', margin: 0, paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '1.5' }}>
+          <li style={{ marginBottom: '8px' }}>Look closely at the image and type what you think the object is.</li>
+          <li>If you guess wrong, you will be locked out for 7 seconds, but the image will zoom out to make your next try easier!</li>
         </ul>
       </div>
 

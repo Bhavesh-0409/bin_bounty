@@ -30,10 +30,10 @@ function isComplete(path) {
   return true;
 }
 
-export default function Zip({ onComplete, onBack }) {
+export default function Zip({ onComplete, onBack, onShowRules }) {
   const canvasRef = useRef(null);
   const [path, setPath] = useState([]);
-  const [status, setStatus] = useState("Connect 1 → 2 → 3 → … → 8 in order. Start from node 1.");
+  const [status, setStatus] = useState("AWAITING INPUT...");
   const [solved, setSolved] = useState(false);
   const draggingRef = useRef(false);
 
@@ -146,7 +146,7 @@ export default function Zip({ onComplete, onBack }) {
     setPath(prev => {
       if (prev.length === 0) {
         if (!nodeAt[`${r},${c}`] || nodeAt[`${r},${c}`] !== 1) {
-          setStatus("Start from node 1!");
+          setStatus("Path must start from node 1!");
           return prev;
         }
         draggingRef.current = true;
@@ -313,7 +313,7 @@ export default function Zip({ onComplete, onBack }) {
     setPath([]);
     setSolved(false);
     draggingRef.current = false;
-    setStatus("Connect 1 → 2 → 3 → … → 8 in order. Start from node 1.");
+    setStatus("AWAITING INPUT...");
   }
 
   function undoStep() {
@@ -327,11 +327,20 @@ export default function Zip({ onComplete, onBack }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, padding: '20px' }}>
-      <div style={{ alignSelf: 'flex-start', marginBottom: '40px', width: '100%', paddingLeft: '20px' }}>
+      <div style={{ alignSelf: 'flex-start', marginBottom: '40px', width: '100%', paddingLeft: '20px', display: 'flex', gap: '15px' }}>
         <button className="cyber-btn" onClick={onBack}>⬅ BACK TO GRID</button>
+        {onShowRules && <button className="cyber-btn" onClick={onShowRules}>VIEW BINGO RULES</button>}
       </div>
 
       <h2 style={{ textShadow: '0 0 10px #00ffe0', fontSize: '2.5rem', marginBottom: '10px' }}>ZIP SEQUENCER</h2>
+
+      <div style={{ backgroundColor: 'rgba(0,0,0,0.6)', border: '1px solid #ff00e0', padding: '15px', borderRadius: '8px', marginBottom: '20px', maxWidth: '600px', width: '100%', boxSizing: 'border-box' }}>
+        <h3 style={{ color: '#ff00e0', margin: '0 0 10px 0', textShadow: '0 0 5px #ff00e0' }}>HOW TO PLAY:</h3>
+        <ul style={{ color: '#fff', margin: 0, paddingLeft: '20px', fontSize: '0.95rem', lineHeight: '1.5' }}>
+          <li style={{ marginBottom: '8px' }}>Draw a continuous line connecting nodes <strong>1</strong> through <strong>8</strong> in numerical order. You can only move straight (no diagonals).</li>
+          <li>You can draw the line by either <strong>dragging</strong> your finger across the grid, or <strong>tapping</strong> adjacent squares one by one to form the path.</li>
+        </ul>
+      </div>
 
       <div style={{
         fontSize: '1.2rem',

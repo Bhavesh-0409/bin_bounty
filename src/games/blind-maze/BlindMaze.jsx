@@ -7,9 +7,20 @@ import { rulesText } from "./rules";
 import RulesScreen from "../../components/RulesScreen";
 import "./BlindMaze.css";
 
+const hashStr = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash.toString(36);
+};
+
 const BlindMaze = ({ onComplete }) => {
   const [playerPos, setPlayerPos] = useState(START_POS);
-  const [gameStatus, setGameStatus] = useState("rules"); // Start with rules
+  const [gameStatus, setGameStatus] = useState(() => {
+    return localStorage.getItem(`rules_seen_${hashStr(rulesText)}`) ? "playing" : "rules";
+  });
   const [shaking, setShaking] = useState(false);
 
   const movePlayer = useCallback(
@@ -100,6 +111,9 @@ const BlindMaze = ({ onComplete }) => {
   return (
     <div className="maze-container">
       <h1 className="maze-title">Blind Maze</h1>
+      <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 10 }}>
+        <button onClick={() => setGameStatus('rules')} style={{ background: 'transparent', color: '#00ff00', border: '1px solid #00ff00', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', fontFamily: 'monospace', textTransform: 'uppercase' }}>VIEW MODULE RULES</button>
+      </div>
       <p className="maze-instructions">{"OBJECTIVE: REACH THE ESCAPE TILE ▣"}</p>
       <p className="maze-instructions">{"[ CONTROLS: ARROWS ]"}</p>
 

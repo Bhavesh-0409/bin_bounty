@@ -6,8 +6,19 @@ import { rulesText } from "./rules";
 import bgImage from "./binarylock.jpg";
 import "./BinaryLock.css";
 
+const hashStr = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash.toString(36);
+};
+
 function BinaryLock({ onComplete }) {
-  const [startGame, setStartGame] = useState(false);
+  const [startGame, setStartGame] = useState(() => {
+    return !!localStorage.getItem(`rules_seen_${hashStr(rulesText)}`);
+  });
   const [showNextGame, setShowNextGame] = useState(false);
   const [answers, setAnswers] = useState({});
   const [status, setStatus] = useState({});
@@ -128,6 +139,9 @@ function BinaryLock({ onComplete }) {
   return startGame ? (
     <div className="binary-lock-container">
       <div className="cyber-panel">
+        <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 10 }}>
+          <button className="cyber-btn" onClick={() => setStartGame(false)} style={{ padding: '8px 15px', fontSize: '1rem' }}>VIEW MODULE RULES</button>
+        </div>
         <h1 className="glitch-title" data-text="🔓 System Override">🔓 System Override</h1>
         <p className="subtitle">
           Initiate sequence. Incorrect inputs trigger trace protocols (clues).

@@ -1,12 +1,12 @@
 [
     {
         "theme": {
-            "name": "AI Rogue",
+            "name": "AI Systems",
             "categories": [
                 "AI Cores",
-                "Payloads",
-                "Host Nodes",
-                "Triggers"
+                "Programs",
+                "Machines",
+                "Actions"
             ],
             "items": [
                 [
@@ -63,15 +63,15 @@
             ]
         ],
         "clues": [
-            "Target profiling links 'HAL-X' directly to 'Killswitch'.",
-            "The vector involving 'Deleter' absolutely involved 'Sandbox'.",
-            "Target profiling links 'SARA' directly to 'Sandbox'.",
-            "Target profiling links 'OMNI' directly to 'Mainframe'.",
-            "The vector involving 'Encrypter' absolutely involved 'Drone'.",
-            "The vector involving 'NEMESIS' absolutely involved 'Satellite'.",
-            "Forensics found 'Crawler' and 'Mainframe' on the same network layer.",
-            "Target profiling links 'Mutator' directly to 'Patch'.",
-            "Forensics found 'HAL-X' and 'Drone' on the same network layer."
+            "HAL-X is paired with Killswitch.",
+            "Deleter goes with Sandbox.",
+            "SARA is paired with Sandbox.",
+            "OMNI is paired with Mainframe.",
+            "Encrypter goes with Drone.",
+            "NEMESIS goes with Satellite.",
+            "Crawler is connected to Mainframe.",
+            "Mutator is paired with Patch.",
+            "HAL-X is connected to Drone."
         ],
         "masterBountyIdx": 1,
         "answerVector": [
@@ -90,7 +90,7 @@
                 "Hackers",
                 "Tools",
                 "Targets",
-                "Motives"
+                "Reasons"
             ],
             "items": [
                 [
@@ -147,14 +147,14 @@
             ]
         ],
         "clues": [
-            "Forensics found 'Apex' and 'Rootkit' on the same network layer.",
-            "The vector involving 'SecureGrid' absolutely involved 'Money'.",
-            "Forensics found 'DDoS' and 'Chaos' on the same network layer.",
-            "Forensics found 'Nova' and 'Phisher' on the same network layer.",
-            "Forensics found 'Phisher' and 'BankServer' on the same network layer.",
-            "Target profiling links 'Ghost' directly to 'CryptoVault'.",
-            "Forensics found 'GovtDB' and 'Revenge' on the same network layer.",
-            "Target profiling links 'ZeroDay' directly to 'GovtDB'."
+            "Apex is connected to Rootkit.",
+            "SecureGrid goes with Money.",
+            "DDoS is connected to Chaos.",
+            "Nova is connected to Phisher.",
+            "Phisher is connected to BankServer.",
+            "Ghost is paired with CryptoVault.",
+            "GovtDB is connected to Revenge.",
+            "ZeroDay is paired with GovtDB."
         ],
         "masterBountyIdx": 1,
         "answerVector": [
@@ -168,12 +168,12 @@
     },
     {
         "theme": {
-            "name": "Deep Web",
+            "name": "Dark Web Market",
             "categories": [
-                "Vendors",
-                "Malwares",
+                "Sellers",
+                "Products",
                 "Payments",
-                "Origins"
+                "Locations"
             ],
             "items": [
                 [
@@ -230,15 +230,15 @@
             ]
         ],
         "clues": [
-            "Target profiling links 'DataDumps' directly to 'Bitcoin'.",
-            "The vector involving 'ProxyX' absolutely involved 'Botnets'.",
-            "Target profiling links 'SilkRat' directly to 'Ransom'.",
-            "Forensics found 'Ransom' and 'Russia' on the same network layer.",
-            "The vector involving 'Exploits' absolutely involved 'WireX'.",
-            "Forensics found 'VendorX' and 'Exploits' on the same network layer.",
-            "Forensics found 'Ransom' and 'Monero' on the same network layer.",
-            "The vector involving 'WireX' absolutely involved 'Brazil'.",
-            "Target profiling links 'Bitcoin' directly to 'USA-Anon'."
+            "DataDumps is paired with Bitcoin.",
+            "ProxyX goes with Botnets.",
+            "SilkRat is paired with Ransom.",
+            "Ransom is connected to Russia.",
+            "Exploits goes with WireX.",
+            "VendorX is connected to Exploits.",
+            "Ransom is connected to Monero.",
+            "WireX goes with Brazil.",
+            "Bitcoin is paired with USA-Anon."
         ],
         "masterBountyIdx": 1,
         "answerVector": [
@@ -257,7 +257,7 @@
                 "Hackers",
                 "Tools",
                 "Targets",
-                "Motives"
+                "Reasons"
             ],
             "items": [
                 [
@@ -314,15 +314,15 @@
             ]
         ],
         "clues": [
-            "Forensics found 'Rootkit' and 'CryptoVault' on the same network layer.",
-            "Target profiling links 'Apex' directly to 'CryptoVault'.",
-            "The vector involving 'Phisher' absolutely involved 'GovtDB'.",
-            "Target profiling links 'Nova' directly to 'SecureGrid'.",
-            "Forensics found 'Apex' and 'Revenge' on the same network layer.",
-            "Forensics found 'DDoS' and 'Chaos' on the same network layer.",
-            "Forensics found 'DDoS' and 'SecureGrid' on the same network layer.",
-            "The vector involving 'Cipher' absolutely involved 'Money'.",
-            "The vector involving 'Ghost' absolutely involved 'Phisher'."
+            "Rootkit is connected to CryptoVault.",
+            "Apex is paired with CryptoVault.",
+            "Phisher goes with GovtDB.",
+            "Nova is paired with SecureGrid.",
+            "Apex is connected to Revenge.",
+            "DDoS is connected to Chaos.",
+            "DDoS is connected to SecureGrid.",
+            "Cipher goes with Money.",
+            "Ghost goes with Phisher."
         ],
         "masterBountyIdx": 2,
         "answerVector": [
@@ -336,12 +336,12 @@
     },
     {
         "theme": {
-            "name": "AI Rogue",
+            "name": "AI Systems",
             "categories": [
                 "AI Cores",
-                "Payloads",
-                "Host Nodes",
-                "Triggers"
+                "Programs",
+                "Machines",
+                "Actions"
             ],
             "items": [
                 [
@@ -398,15 +398,15 @@
             ]
         ],
         "clues": [
-            "Forensics found 'Deleter' and 'Killswitch' on the same network layer.",
-            "Forensics found 'Drone' and 'EMP' on the same network layer.",
-            "Target profiling links 'SARA' directly to 'Killswitch'.",
-            "The vector involving 'Mutator' absolutely involved 'Drone'.",
-            "Forensics found 'HAL-X' and 'Drone' on the same network layer.",
-            "Forensics found 'Deleter' and 'Satellite' on the same network layer.",
-            "Target profiling links 'OMNI' directly to 'Sandbox'.",
-            "Forensics found 'Mainframe' and 'Sandbox' on the same network layer.",
-            "Forensics found 'NEMESIS' and 'Encrypter' on the same network layer."
+            "Deleter is connected to Killswitch.",
+            "Drone is connected to EMP.",
+            "SARA is paired with Killswitch.",
+            "Mutator goes with Drone.",
+            "HAL-X is connected to Drone.",
+            "Deleter is connected to Satellite.",
+            "OMNI is paired with Sandbox.",
+            "Mainframe is connected to Sandbox.",
+            "NEMESIS is connected to Encrypter."
         ],
         "masterBountyIdx": 0,
         "answerVector": [

@@ -8,8 +8,7 @@ import LogicalGrid from "../games/logical-grid/logical";
 // rule->game already handled in logical.jsx natively; it renders RulesScreen first.
 
 import Bingo from "../games/bingo/Bingo";
-import { rulesText as bingoRules } from "../games/bingo/rules";
-// Bingo does NOT handle RulesScreen natively, so we render it here.
+// rule->game handled internally by Bingo.jsx
 
 import BlindMaze from "../games/blind-maze/BlindMaze";
 // rule->game natively handled.
@@ -34,11 +33,7 @@ function GameRouter() {
 
   if (screen === "logical-grid") {
     // logical.jsx natively handles rule screen internally on mount.
-    return <LogicalGrid onComplete={() => setScreen("rules-bingo")} />;
-  }
-
-  if (screen === "rules-bingo") {
-    return <RulesScreen rules={bingoRules} onStart={() => setScreen("bingo")} />;
+    return <LogicalGrid onComplete={() => setScreen("bingo")} />;
   }
 
   if (screen === "bingo") {

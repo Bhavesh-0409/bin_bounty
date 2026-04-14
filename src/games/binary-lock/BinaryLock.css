@@ -205,18 +205,20 @@ html, body, #root {
 }
 
 .cyber-input {
-  flex: 1 1 300px;
-  padding: 20px 25px;
+  flex: 1 1 200px;
+  padding: 15px 20px;
   border: 2px solid rgba(0, 255, 0, 0.5);
   background: rgba(0, 40, 0, 0.3);
   color: #fff;
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   outline: none;
   transition: 0.3s;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   border-radius: 6px;
   text-shadow: 0 0 8px rgba(255,255,255,0.5);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .cyber-input::placeholder {
   color: rgba(0, 255, 0, 0.3);

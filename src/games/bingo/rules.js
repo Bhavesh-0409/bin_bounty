@@ -23,7 +23,7 @@ Solve one Arithmetic → all Arithmetic tiles become ✅
 🧠 Mini-Games Included
 🔢 Arithmetic Operators
 🔍 Zoom-Out Puzzle
-🧠 Pinpoint Guess
+🧠 CrossClimb
 🔗 Zip Path Game
 
 

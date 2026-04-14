@@ -37,8 +37,19 @@ const ARROW_KEYS = new Set([
     "ArrowRight",
 ]);
 
+const hashStr = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash.toString(36);
+};
+
 function Deceptive({ onComplete }) {
-    const [startGame, setStartGame] = useState(false);
+  const [startGame, setStartGame] = useState(() => {
+    return !!localStorage.getItem(`rules_seen_${hashStr(rulesText)}`);
+  });
 
     const grid = [
         ["S", 0, 0, 0, 1, 0, 0, 0],
@@ -412,6 +423,9 @@ function Deceptive({ onComplete }) {
                             : "none",
                     }}
                 >
+                    <div style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 10 }}>
+                        <button onClick={() => setStartGame(false)} style={{ background: 'transparent', color: '#00ff00', border: '1px solid #00ff00', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer', fontFamily: 'monospace' }}>VIEW MODULE RULES</button>
+                    </div>
                     <div
                         style={{
                             fontSize: 28,

@@ -4,6 +4,8 @@ import Arithmetic from './games/Arithmetic';
 import Pinpoint from './games/cross';
 import Zoom from './games/Zoom';
 import Zip from './games/Zip';
+import { rulesText } from './rules';
+import RulesScreen from '../../components/RulesScreen';
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -52,6 +54,14 @@ const generateInitialGrid = () => {
 };
 
 export default function Bingo({ onComplete }) {
+  const [showRules, setShowRules] = useState(() => {
+    let hash = 0;
+    for (let i = 0; i < rulesText.length; i++) {
+        hash = ((hash << 5) - hash) + rulesText.charCodeAt(i);
+        hash |= 0;
+    }
+    return !localStorage.getItem(`rules_seen_${hash.toString(36)}`);
+  });
   const [grid, setGrid] = useState(generateInitialGrid);
   const [solvedGames, setSolvedGames] = useState({
     ARITH: false,
@@ -185,20 +195,29 @@ export default function Bingo({ onComplete }) {
       `}
       </style>
 
+      {showRules && (
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 100 }}>
+          <RulesScreen rules={rulesText} onStart={() => setShowRules(false)} />
+        </div>
+      )}
+
       {win ? (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <h1 style={{ textShadow: '0 0 20px #00ffe0', fontSize: '3.5rem' }}>🎉 BINGO COMPLETE</h1>
         </div>
       ) : screen === "arith" ? (
-        <Arithmetic onComplete={handleGameComplete} onBack={() => setScreen("grid")} />
+        <Arithmetic onComplete={handleGameComplete} onBack={() => setScreen("grid")} onShowRules={() => setShowRules(true)} />
       ) : screen === "pinpoint" ? (
-        <Pinpoint onComplete={handleGameComplete} onBack={() => setScreen("grid")} />
+        <Pinpoint onComplete={handleGameComplete} onBack={() => setScreen("grid")} onShowRules={() => setShowRules(true)} />
       ) : screen === "zoom" ? (
-        <Zoom onComplete={handleGameComplete} onBack={() => setScreen("grid")} />
+        <Zoom onComplete={handleGameComplete} onBack={() => setScreen("grid")} onShowRules={() => setShowRules(true)} />
       ) : screen === "zip" ? (
-        <Zip onComplete={handleGameComplete} onBack={() => setScreen("grid")} />
+        <Zip onComplete={handleGameComplete} onBack={() => setScreen("grid")} onShowRules={() => setShowRules(true)} />
       ) : (
         <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
+          <div style={{ alignSelf: 'flex-end', marginBottom: '-50px', zIndex: 10 }}>
+            <button className="cyber-btn" onClick={() => setShowRules(true)}>VIEW BINGO RULES</button>
+          </div>
           <h2 style={{ textShadow: '0 0 15px #00ffe0', textAlign: 'center', marginBottom: '40px', fontSize: '2.5rem', marginTop: '30px' }}>SYSTEM DECRYPTION</h2>
           <BingoGrid grid={grid} onTileClick={openGame} />
         </div>
