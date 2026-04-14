@@ -1,0 +1,2510 @@
+[
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ],
+            [
+                1,
+                2,
+                0,
+                3
+            ],
+            [
+                3,
+                2,
+                1,
+                0
+            ]
+        ],
+        "clues": [
+            "The vector involving 'Exploits' absolutely involved 'Bitcoin'.",
+            "Forensics found 'SilkRat' and 'Brazil' on the same network layer.",
+            "Target profiling links 'ProxyX' directly to 'Botnets'.",
+            "Forensics found 'Bitcoin' and 'China' on the same network layer.",
+            "Forensics found 'Ransom' and 'Monero' on the same network layer.",
+            "Target profiling links 'VendorX' directly to 'Ransom'.",
+            "The vector involving 'Monero' absolutely involved 'USA-Anon'.",
+            "The vector involving 'WireX' absolutely involved 'Russia'."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "SilkRat",
+            "DataDumps",
+            "CashDrop",
+            "Brazil"
+        ],
+        "masterBountyName": "SilkRat",
+        "id": "PUZZLE_01"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                3,
+                2,
+                0
+            ],
+            [
+                2,
+                0,
+                3,
+                1
+            ],
+            [
+                1,
+                0,
+                3,
+                2
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'HAL-X' directly to 'Killswitch'.",
+            "The vector involving 'Deleter' absolutely involved 'Sandbox'.",
+            "Target profiling links 'SARA' directly to 'Sandbox'.",
+            "Target profiling links 'OMNI' directly to 'Mainframe'.",
+            "The vector involving 'Encrypter' absolutely involved 'Drone'.",
+            "The vector involving 'NEMESIS' absolutely involved 'Satellite'.",
+            "Forensics found 'Crawler' and 'Mainframe' on the same network layer.",
+            "Target profiling links 'Mutator' directly to 'Patch'.",
+            "Forensics found 'HAL-X' and 'Drone' on the same network layer."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "OMNI",
+            "Crawler",
+            "Mainframe",
+            "EMP"
+        ],
+        "masterBountyName": "OMNI",
+        "id": "PUZZLE_02"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                3,
+                1,
+                2
+            ],
+            [
+                1,
+                3,
+                0,
+                2
+            ],
+            [
+                3,
+                1,
+                2,
+                0
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Apex' and 'Rootkit' on the same network layer.",
+            "The vector involving 'SecureGrid' absolutely involved 'Money'.",
+            "Forensics found 'DDoS' and 'Chaos' on the same network layer.",
+            "Forensics found 'Nova' and 'Phisher' on the same network layer.",
+            "Forensics found 'Phisher' and 'BankServer' on the same network layer.",
+            "Target profiling links 'Ghost' directly to 'CryptoVault'.",
+            "Forensics found 'GovtDB' and 'Revenge' on the same network layer.",
+            "Target profiling links 'ZeroDay' directly to 'GovtDB'."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "Ghost",
+            "DDoS",
+            "CryptoVault",
+            "Chaos"
+        ],
+        "masterBountyName": "Ghost",
+        "id": "PUZZLE_03"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                3,
+                2,
+                1
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ],
+            [
+                2,
+                0,
+                3,
+                1
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'DataDumps' directly to 'Bitcoin'.",
+            "The vector involving 'ProxyX' absolutely involved 'Botnets'.",
+            "Target profiling links 'SilkRat' directly to 'Ransom'.",
+            "Forensics found 'Ransom' and 'Russia' on the same network layer.",
+            "The vector involving 'Exploits' absolutely involved 'WireX'.",
+            "Forensics found 'VendorX' and 'Exploits' on the same network layer.",
+            "Forensics found 'Ransom' and 'Monero' on the same network layer.",
+            "The vector involving 'WireX' absolutely involved 'Brazil'.",
+            "Target profiling links 'Bitcoin' directly to 'USA-Anon'."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "SilkRat",
+            "Ransom",
+            "Monero",
+            "Russia"
+        ],
+        "masterBountyName": "SilkRat",
+        "id": "PUZZLE_04"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                3,
+                1,
+                2
+            ],
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                3,
+                0,
+                2
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'NEMESIS' directly to 'Patch'.",
+            "Target profiling links 'SARA' directly to 'Mainframe'.",
+            "The vector involving 'Crawler' absolutely involved 'Killswitch'.",
+            "Target profiling links 'Deleter' directly to 'Pacemaker'.",
+            "The vector involving 'Mutator' absolutely involved 'Sandbox'.",
+            "Target profiling links 'Pacemaker' directly to 'EMP'.",
+            "The vector involving 'OMNI' absolutely involved 'Crawler'.",
+            "The vector involving 'Mutator' absolutely involved 'Mainframe'.",
+            "Forensics found 'NEMESIS' and 'Drone' on the same network layer."
+        ],
+        "masterBountyIdx": 2,
+        "answerVector": [
+            "HAL-X",
+            "Deleter",
+            "Pacemaker",
+            "EMP"
+        ],
+        "masterBountyName": "HAL-X",
+        "id": "PUZZLE_05"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                1,
+                3,
+                2
+            ],
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                2,
+                1,
+                3
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Rootkit' and 'CryptoVault' on the same network layer.",
+            "Target profiling links 'Apex' directly to 'CryptoVault'.",
+            "The vector involving 'Phisher' absolutely involved 'GovtDB'.",
+            "Target profiling links 'Nova' directly to 'SecureGrid'.",
+            "Forensics found 'Apex' and 'Revenge' on the same network layer.",
+            "Forensics found 'DDoS' and 'Chaos' on the same network layer.",
+            "Forensics found 'DDoS' and 'SecureGrid' on the same network layer.",
+            "The vector involving 'Cipher' absolutely involved 'Money'.",
+            "The vector involving 'Ghost' absolutely involved 'Phisher'."
+        ],
+        "masterBountyIdx": 2,
+        "answerVector": [
+            "Nova",
+            "DDoS",
+            "SecureGrid",
+            "Chaos"
+        ],
+        "masterBountyName": "Nova",
+        "id": "PUZZLE_06"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                2,
+                1,
+                3,
+                0
+            ],
+            [
+                1,
+                0,
+                3,
+                2
+            ],
+            [
+                0,
+                3,
+                1,
+                2
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Exploits' and 'Brazil' on the same network layer.",
+            "The vector involving 'CashDrop' absolutely involved 'Brazil'.",
+            "Target profiling links 'OnionGod' directly to 'WireX'.",
+            "Forensics found 'OnionGod' and 'Ransom' on the same network layer.",
+            "The vector involving 'SilkRat' absolutely involved 'Bitcoin'.",
+            "Target profiling links 'SilkRat' directly to 'Botnets'.",
+            "Target profiling links 'VendorX' directly to 'Russia'.",
+            "The vector involving 'SilkRat' absolutely involved 'USA-Anon'."
+        ],
+        "masterBountyIdx": 2,
+        "answerVector": [
+            "OnionGod",
+            "Ransom",
+            "WireX",
+            "China"
+        ],
+        "masterBountyName": "OnionGod",
+        "id": "PUZZLE_07"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'OMNI' directly to 'Sandbox'.",
+            "Target profiling links 'HAL-X' directly to 'Mutator'.",
+            "Target profiling links 'SARA' directly to 'Crawler'.",
+            "Target profiling links 'Crawler' directly to 'Drone'.",
+            "The vector involving 'Crawler' absolutely involved 'Killswitch'.",
+            "The vector involving 'Deleter' absolutely involved 'Patch'.",
+            "The vector involving 'OMNI' absolutely involved 'Satellite'.",
+            "Forensics found 'HAL-X' and 'Mainframe' on the same network layer."
+        ],
+        "masterBountyIdx": 2,
+        "answerVector": [
+            "HAL-X",
+            "Mutator",
+            "Mainframe",
+            "EMP"
+        ],
+        "masterBountyName": "HAL-X",
+        "id": "PUZZLE_08"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                2,
+                0,
+                1,
+                3
+            ],
+            [
+                0,
+                2,
+                1,
+                3
+            ],
+            [
+                0,
+                3,
+                2,
+                1
+            ]
+        ],
+        "clues": [
+            "The vector involving 'ZeroDay' absolutely involved 'SecureGrid'.",
+            "Forensics found 'Nova' and 'Espionage' on the same network layer.",
+            "Forensics found 'Ghost' and 'Revenge' on the same network layer.",
+            "Target profiling links 'CryptoVault' directly to 'Chaos'.",
+            "Target profiling links 'Phisher' directly to 'Espionage'.",
+            "Target profiling links 'Phisher' directly to 'GovtDB'.",
+            "Forensics found 'Cipher' and 'Rootkit' on the same network layer.",
+            "Target profiling links 'Ghost' directly to 'ZeroDay'.",
+            "Forensics found 'Apex' and 'CryptoVault' on the same network layer."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "Apex",
+            "DDoS",
+            "CryptoVault",
+            "Chaos"
+        ],
+        "masterBountyName": "Apex",
+        "id": "PUZZLE_09"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                3,
+                2,
+                1
+            ],
+            [
+                2,
+                1,
+                3,
+                0
+            ],
+            [
+                0,
+                2,
+                1,
+                3
+            ]
+        ],
+        "clues": [
+            "The vector involving 'WireX' absolutely involved 'China'.",
+            "The vector involving 'Botnets' absolutely involved 'Bitcoin'.",
+            "Target profiling links 'CashDrop' directly to 'Russia'.",
+            "Forensics found 'VendorX' and 'Exploits' on the same network layer.",
+            "Forensics found 'OnionGod' and 'WireX' on the same network layer.",
+            "The vector involving 'SilkRat' absolutely involved 'Ransom'.",
+            "Target profiling links 'SilkRat' directly to 'Brazil'."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "VendorX",
+            "Exploits",
+            "CashDrop",
+            "Russia"
+        ],
+        "masterBountyName": "VendorX",
+        "id": "PUZZLE_10"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                3,
+                0,
+                2
+            ],
+            [
+                1,
+                0,
+                3,
+                2
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Deleter' and 'Killswitch' on the same network layer.",
+            "Forensics found 'Drone' and 'EMP' on the same network layer.",
+            "Target profiling links 'SARA' directly to 'Killswitch'.",
+            "The vector involving 'Mutator' absolutely involved 'Drone'.",
+            "Forensics found 'HAL-X' and 'Drone' on the same network layer.",
+            "Forensics found 'Deleter' and 'Satellite' on the same network layer.",
+            "Target profiling links 'OMNI' directly to 'Sandbox'.",
+            "Forensics found 'Mainframe' and 'Sandbox' on the same network layer.",
+            "Forensics found 'NEMESIS' and 'Encrypter' on the same network layer."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "SARA",
+            "Deleter",
+            "Satellite",
+            "Killswitch"
+        ],
+        "masterBountyName": "SARA",
+        "id": "PUZZLE_11"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ],
+            [
+                3,
+                0,
+                1,
+                2
+            ]
+        ],
+        "clues": [
+            "The vector involving 'Phisher' absolutely involved 'SecureGrid'.",
+            "Target profiling links 'Nova' directly to 'BankServer'.",
+            "Forensics found 'Rootkit' and 'Espionage' on the same network layer.",
+            "Target profiling links 'Cipher' directly to 'CryptoVault'.",
+            "The vector involving 'Nova' absolutely involved 'Chaos'.",
+            "Forensics found 'DDoS' and 'Revenge' on the same network layer.",
+            "Target profiling links 'ZeroDay' directly to 'BankServer'.",
+            "Forensics found 'CryptoVault' and 'Revenge' on the same network layer.",
+            "Target profiling links 'Apex' directly to 'GovtDB'."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "Apex",
+            "Rootkit",
+            "GovtDB",
+            "Espionage"
+        ],
+        "masterBountyName": "Apex",
+        "id": "PUZZLE_12"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ],
+            [
+                1,
+                3,
+                2,
+                0
+            ],
+            [
+                1,
+                3,
+                0,
+                2
+            ]
+        ],
+        "clues": [
+            "The vector involving 'ProxyX' absolutely involved 'Bitcoin'.",
+            "Forensics found 'DataDumps' and 'Brazil' on the same network layer.",
+            "Forensics found 'ProxyX' and 'DataDumps' on the same network layer.",
+            "The vector involving 'Ransom' absolutely involved 'China'.",
+            "Forensics found 'SilkRat' and 'WireX' on the same network layer.",
+            "The vector involving 'VendorX' absolutely involved 'Monero'.",
+            "Forensics found 'WireX' and 'USA-Anon' on the same network layer.",
+            "Target profiling links 'OnionGod' directly to 'Exploits'.",
+            "Forensics found 'SilkRat' and 'Botnets' on the same network layer."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "SilkRat",
+            "Botnets",
+            "WireX",
+            "USA-Anon"
+        ],
+        "masterBountyName": "SilkRat",
+        "id": "PUZZLE_13"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                2,
+                1,
+                3,
+                0
+            ],
+            [
+                3,
+                2,
+                1,
+                0
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ]
+        ],
+        "clues": [
+            "The vector involving 'SARA' absolutely involved 'Encrypter'.",
+            "Target profiling links 'OMNI' directly to 'Pacemaker'.",
+            "Forensics found 'OMNI' and 'Deleter' on the same network layer.",
+            "The vector involving 'Encrypter' absolutely involved 'Killswitch'.",
+            "Target profiling links 'Crawler' directly to 'Satellite'.",
+            "Forensics found 'Mutator' and 'Patch' on the same network layer.",
+            "Forensics found 'Mutator' and 'Mainframe' on the same network layer.",
+            "Target profiling links 'Satellite' directly to 'EMP'.",
+            "Target profiling links 'HAL-X' directly to 'Crawler'."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "SARA",
+            "Encrypter",
+            "Drone",
+            "Killswitch"
+        ],
+        "masterBountyName": "SARA",
+        "id": "PUZZLE_14"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ],
+            [
+                3,
+                1,
+                2,
+                0
+            ]
+        ],
+        "clues": [
+            "Forensics found 'DDoS' and 'SecureGrid' on the same network layer.",
+            "The vector involving 'Nova' absolutely involved 'Rootkit'.",
+            "Target profiling links 'Cipher' directly to 'CryptoVault'.",
+            "Forensics found 'SecureGrid' and 'Money' on the same network layer.",
+            "The vector involving 'Phisher' absolutely involved 'GovtDB'.",
+            "Target profiling links 'Apex' directly to 'SecureGrid'.",
+            "The vector involving 'Ghost' absolutely involved 'Phisher'.",
+            "Target profiling links 'BankServer' directly to 'Espionage'.",
+            "Target profiling links 'Phisher' directly to 'Chaos'."
+        ],
+        "masterBountyIdx": 2,
+        "answerVector": [
+            "Nova",
+            "Rootkit",
+            "BankServer",
+            "Espionage"
+        ],
+        "masterBountyName": "Nova",
+        "id": "PUZZLE_15"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                2,
+                3,
+                1,
+                0
+            ],
+            [
+                3,
+                1,
+                2,
+                0
+            ],
+            [
+                1,
+                3,
+                2,
+                0
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'Botnets' directly to 'CashDrop'.",
+            "The vector involving 'OnionGod' absolutely involved 'CashDrop'.",
+            "The vector involving 'ProxyX' absolutely involved 'Russia'.",
+            "Forensics found 'SilkRat' and 'USA-Anon' on the same network layer.",
+            "The vector involving 'Ransom' absolutely involved 'Monero'.",
+            "The vector involving 'WireX' absolutely involved 'China'.",
+            "Target profiling links 'SilkRat' directly to 'Ransom'.",
+            "Target profiling links 'OnionGod' directly to 'Brazil'.",
+            "Forensics found 'ProxyX' and 'Exploits' on the same network layer."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "ProxyX",
+            "Exploits",
+            "Bitcoin",
+            "Russia"
+        ],
+        "masterBountyName": "ProxyX",
+        "id": "PUZZLE_16"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ],
+            [
+                2,
+                3,
+                0,
+                1
+            ],
+            [
+                2,
+                1,
+                0,
+                3
+            ]
+        ],
+        "clues": [
+            "Forensics found 'OMNI' and 'Sandbox' on the same network layer.",
+            "The vector involving 'SARA' absolutely involved 'Patch'.",
+            "The vector involving 'OMNI' absolutely involved 'Drone'.",
+            "The vector involving 'SARA' absolutely involved 'Pacemaker'.",
+            "The vector involving 'Deleter' absolutely involved 'Killswitch'.",
+            "Target profiling links 'Mutator' directly to 'EMP'.",
+            "Forensics found 'HAL-X' and 'Mainframe' on the same network layer.",
+            "The vector involving 'NEMESIS' absolutely involved 'Killswitch'.",
+            "Forensics found 'Encrypter' and 'Drone' on the same network layer."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "NEMESIS",
+            "Deleter",
+            "Satellite",
+            "Killswitch"
+        ],
+        "masterBountyName": "NEMESIS",
+        "id": "PUZZLE_17"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                0,
+                3,
+                2
+            ],
+            [
+                2,
+                1,
+                3,
+                0
+            ],
+            [
+                2,
+                0,
+                3,
+                1
+            ]
+        ],
+        "clues": [
+            "The vector involving 'Rootkit' absolutely involved 'Chaos'.",
+            "The vector involving 'DDoS' absolutely involved 'Revenge'.",
+            "The vector involving 'Ghost' absolutely involved 'Money'.",
+            "The vector involving 'Phisher' absolutely involved 'SecureGrid'.",
+            "Target profiling links 'DDoS' directly to 'CryptoVault'.",
+            "Forensics found 'Apex' and 'Chaos' on the same network layer.",
+            "Forensics found 'ZeroDay' and 'GovtDB' on the same network layer.",
+            "The vector involving 'Cipher' absolutely involved 'Phisher'.",
+            "Target profiling links 'Nova' directly to 'Revenge'."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "Apex",
+            "Rootkit",
+            "BankServer",
+            "Chaos"
+        ],
+        "masterBountyName": "Apex",
+        "id": "PUZZLE_18"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                2,
+                3,
+                0
+            ],
+            [
+                3,
+                2,
+                1,
+                0
+            ],
+            [
+                2,
+                1,
+                3,
+                0
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'SilkRat' directly to 'CashDrop'.",
+            "Target profiling links 'VendorX' directly to 'Botnets'.",
+            "Forensics found 'Ransom' and 'Monero' on the same network layer.",
+            "Target profiling links 'Monero' directly to 'USA-Anon'.",
+            "Target profiling links 'Botnets' directly to 'Brazil'.",
+            "Target profiling links 'Bitcoin' directly to 'Russia'.",
+            "The vector involving 'OnionGod' absolutely involved 'Ransom'.",
+            "Target profiling links 'DataDumps' directly to 'China'."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "ProxyX",
+            "Exploits",
+            "Bitcoin",
+            "Russia"
+        ],
+        "masterBountyName": "ProxyX",
+        "id": "PUZZLE_19"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                2,
+                3,
+                0
+            ],
+            [
+                0,
+                3,
+                2,
+                1
+            ],
+            [
+                2,
+                0,
+                1,
+                3
+            ]
+        ],
+        "clues": [
+            "Forensics found 'OMNI' and 'EMP' on the same network layer.",
+            "Forensics found 'Deleter' and 'Mainframe' on the same network layer.",
+            "Target profiling links 'SARA' directly to 'Deleter'.",
+            "Target profiling links 'Satellite' directly to 'Killswitch'.",
+            "Target profiling links 'Crawler' directly to 'Sandbox'.",
+            "Forensics found 'HAL-X' and 'Crawler' on the same network layer.",
+            "Target profiling links 'Encrypter' directly to 'EMP'.",
+            "Forensics found 'Encrypter' and 'Drone' on the same network layer.",
+            "Forensics found 'Mutator' and 'Killswitch' on the same network layer."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "NEMESIS",
+            "Mutator",
+            "Satellite",
+            "Killswitch"
+        ],
+        "masterBountyName": "NEMESIS",
+        "id": "PUZZLE_20"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                0,
+                2,
+                1
+            ],
+            [
+                2,
+                1,
+                0,
+                3
+            ],
+            [
+                1,
+                2,
+                3,
+                0
+            ]
+        ],
+        "clues": [
+            "The vector involving 'Apex' absolutely involved 'Phisher'.",
+            "The vector involving 'Cipher' absolutely involved 'DDoS'.",
+            "The vector involving 'SecureGrid' absolutely involved 'Chaos'.",
+            "Forensics found 'Cipher' and 'Chaos' on the same network layer.",
+            "Forensics found 'Apex' and 'CryptoVault' on the same network layer.",
+            "Forensics found 'Ghost' and 'GovtDB' on the same network layer.",
+            "The vector involving 'Phisher' absolutely involved 'Money'.",
+            "The vector involving 'ZeroDay' absolutely involved 'Espionage'.",
+            "Target profiling links 'BankServer' directly to 'Revenge'."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "Ghost",
+            "ZeroDay",
+            "GovtDB",
+            "Espionage"
+        ],
+        "masterBountyName": "Ghost",
+        "id": "PUZZLE_21"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                2,
+                0,
+                3
+            ],
+            [
+                3,
+                1,
+                0,
+                2
+            ],
+            [
+                0,
+                1,
+                2,
+                3
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Botnets' and 'Russia' on the same network layer.",
+            "Target profiling links 'Exploits' directly to 'Bitcoin'.",
+            "Target profiling links 'SilkRat' directly to 'Monero'.",
+            "The vector involving 'Bitcoin' absolutely involved 'Brazil'.",
+            "Forensics found 'Ransom' and 'USA-Anon' on the same network layer.",
+            "Target profiling links 'Ransom' directly to 'CashDrop'.",
+            "Target profiling links 'VendorX' directly to 'Russia'.",
+            "Forensics found 'Botnets' and 'WireX' on the same network layer.",
+            "Forensics found 'OnionGod' and 'Exploits' on the same network layer."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "SilkRat",
+            "DataDumps",
+            "Monero",
+            "China"
+        ],
+        "masterBountyName": "SilkRat",
+        "id": "PUZZLE_22"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ],
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                0,
+                2,
+                1,
+                3
+            ]
+        ],
+        "clues": [
+            "The vector involving 'OMNI' absolutely involved 'Encrypter'.",
+            "The vector involving 'NEMESIS' absolutely involved 'Deleter'.",
+            "The vector involving 'HAL-X' absolutely involved 'Pacemaker'.",
+            "Forensics found 'Drone' and 'Killswitch' on the same network layer.",
+            "Forensics found 'NEMESIS' and 'Drone' on the same network layer.",
+            "Target profiling links 'Pacemaker' directly to 'Sandbox'.",
+            "The vector involving 'Encrypter' absolutely involved 'Patch'.",
+            "Target profiling links 'Encrypter' directly to 'Satellite'.",
+            "Forensics found 'Mutator' and 'Pacemaker' on the same network layer."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "SARA",
+            "Crawler",
+            "Mainframe",
+            "EMP"
+        ],
+        "masterBountyName": "SARA",
+        "id": "PUZZLE_23"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                0,
+                3,
+                2
+            ],
+            [
+                2,
+                0,
+                1,
+                3
+            ],
+            [
+                1,
+                2,
+                3,
+                0
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Apex' and 'Rootkit' on the same network layer.",
+            "Forensics found 'ZeroDay' and 'BankServer' on the same network layer.",
+            "The vector involving 'Cipher' absolutely involved 'Phisher'.",
+            "Target profiling links 'DDoS' directly to 'Revenge'.",
+            "Forensics found 'CryptoVault' and 'Money' on the same network layer.",
+            "The vector involving 'Nova' absolutely involved 'DDoS'.",
+            "The vector involving 'Cipher' absolutely involved 'Chaos'.",
+            "The vector involving 'DDoS' absolutely involved 'GovtDB'.",
+            "Forensics found 'Rootkit' and 'CryptoVault' on the same network layer."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "Cipher",
+            "Phisher",
+            "SecureGrid",
+            "Chaos"
+        ],
+        "masterBountyName": "Cipher",
+        "id": "PUZZLE_24"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                1,
+                2,
+                0
+            ],
+            [
+                2,
+                0,
+                3,
+                1
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ]
+        ],
+        "clues": [
+            "The vector involving 'DataDumps' absolutely involved 'Russia'.",
+            "Target profiling links 'VendorX' directly to 'Ransom'.",
+            "Target profiling links 'ProxyX' directly to 'Exploits'.",
+            "The vector involving 'ProxyX' absolutely involved 'Monero'.",
+            "Forensics found 'CashDrop' and 'USA-Anon' on the same network layer.",
+            "The vector involving 'VendorX' absolutely involved 'USA-Anon'.",
+            "Forensics found 'Bitcoin' and 'Brazil' on the same network layer.",
+            "The vector involving 'DataDumps' absolutely involved 'WireX'.",
+            "Target profiling links 'SilkRat' directly to 'Bitcoin'."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "SilkRat",
+            "Botnets",
+            "Bitcoin",
+            "Brazil"
+        ],
+        "masterBountyName": "SilkRat",
+        "id": "PUZZLE_25"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                0,
+                1,
+                2
+            ],
+            [
+                0,
+                2,
+                3,
+                1
+            ],
+            [
+                1,
+                2,
+                0,
+                3
+            ]
+        ],
+        "clues": [
+            "Target profiling links 'OMNI' directly to 'Patch'.",
+            "The vector involving 'Crawler' absolutely involved 'Mainframe'.",
+            "The vector involving 'Mutator' absolutely involved 'Pacemaker'.",
+            "Forensics found 'NEMESIS' and 'Satellite' on the same network layer.",
+            "Target profiling links 'Satellite' directly to 'Killswitch'.",
+            "The vector involving 'Deleter' absolutely involved 'EMP'.",
+            "The vector involving 'SARA' absolutely involved 'Crawler'.",
+            "Target profiling links 'OMNI' directly to 'Pacemaker'."
+        ],
+        "masterBountyIdx": 3,
+        "answerVector": [
+            "NEMESIS",
+            "Encrypter",
+            "Satellite",
+            "Killswitch"
+        ],
+        "masterBountyName": "NEMESIS",
+        "id": "PUZZLE_26"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                1,
+                2,
+                0
+            ],
+            [
+                0,
+                2,
+                1,
+                3
+            ],
+            [
+                2,
+                3,
+                0,
+                1
+            ]
+        ],
+        "clues": [
+            "The vector involving 'ZeroDay' absolutely involved 'CryptoVault'.",
+            "Target profiling links 'Cipher' directly to 'Espionage'.",
+            "Target profiling links 'Apex' directly to 'Chaos'.",
+            "Forensics found 'Ghost' and 'Phisher' on the same network layer.",
+            "The vector involving 'SecureGrid' absolutely involved 'Revenge'.",
+            "Target profiling links 'Rootkit' directly to 'Money'.",
+            "The vector involving 'Cipher' absolutely involved 'BankServer'."
+        ],
+        "masterBountyIdx": 1,
+        "answerVector": [
+            "Ghost",
+            "Phisher",
+            "SecureGrid",
+            "Revenge"
+        ],
+        "masterBountyName": "Ghost",
+        "id": "PUZZLE_27"
+    },
+    {
+        "theme": {
+            "name": "Deep Web",
+            "categories": [
+                "Vendors",
+                "Malwares",
+                "Payments",
+                "Origins"
+            ],
+            "items": [
+                [
+                    "VendorX",
+                    "SilkRat",
+                    "OnionGod",
+                    "ProxyX"
+                ],
+                [
+                    "Exploits",
+                    "Botnets",
+                    "DataDumps",
+                    "Ransom"
+                ],
+                [
+                    "Bitcoin",
+                    "Monero",
+                    "CashDrop",
+                    "WireX"
+                ],
+                [
+                    "Russia",
+                    "China",
+                    "Brazil",
+                    "USA-Anon"
+                ]
+            ]
+        },
+        "themeIdx": 1,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                1,
+                0,
+                3,
+                2
+            ],
+            [
+                1,
+                0,
+                2,
+                3
+            ],
+            [
+                2,
+                0,
+                1,
+                3
+            ]
+        ],
+        "clues": [
+            "Forensics found 'VendorX' and 'Monero' on the same network layer.",
+            "Target profiling links 'ProxyX' directly to 'DataDumps'.",
+            "The vector involving 'DataDumps' absolutely involved 'USA-Anon'.",
+            "The vector involving 'Botnets' absolutely involved 'Brazil'.",
+            "The vector involving 'OnionGod' absolutely involved 'China'.",
+            "Forensics found 'VendorX' and 'Brazil' on the same network layer.",
+            "The vector involving 'SilkRat' absolutely involved 'Bitcoin'.",
+            "Forensics found 'Ransom' and 'CashDrop' on the same network layer."
+        ],
+        "masterBountyIdx": 2,
+        "answerVector": [
+            "OnionGod",
+            "Ransom",
+            "CashDrop",
+            "China"
+        ],
+        "masterBountyName": "OnionGod",
+        "id": "PUZZLE_28"
+    },
+    {
+        "theme": {
+            "name": "AI Rogue",
+            "categories": [
+                "AI Cores",
+                "Payloads",
+                "Host Nodes",
+                "Triggers"
+            ],
+            "items": [
+                [
+                    "SARA",
+                    "OMNI",
+                    "HAL-X",
+                    "NEMESIS"
+                ],
+                [
+                    "Mutator",
+                    "Deleter",
+                    "Encrypter",
+                    "Crawler"
+                ],
+                [
+                    "Mainframe",
+                    "Satellite",
+                    "Pacemaker",
+                    "Drone"
+                ],
+                [
+                    "EMP",
+                    "Sandbox",
+                    "Patch",
+                    "Killswitch"
+                ]
+            ]
+        },
+        "themeIdx": 2,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                2,
+                0,
+                1
+            ],
+            [
+                2,
+                3,
+                1,
+                0
+            ],
+            [
+                2,
+                0,
+                3,
+                1
+            ]
+        ],
+        "clues": [
+            "The vector involving 'Crawler' absolutely involved 'Pacemaker'.",
+            "The vector involving 'OMNI' absolutely involved 'Drone'.",
+            "Forensics found 'SARA' and 'Patch' on the same network layer.",
+            "The vector involving 'Deleter' absolutely involved 'Mainframe'.",
+            "Target profiling links 'SARA' directly to 'Crawler'.",
+            "Forensics found 'HAL-X' and 'Mutator' on the same network layer.",
+            "The vector involving 'Deleter' absolutely involved 'Sandbox'.",
+            "The vector involving 'OMNI' absolutely involved 'EMP'."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "SARA",
+            "Crawler",
+            "Pacemaker",
+            "Patch"
+        ],
+        "masterBountyName": "SARA",
+        "id": "PUZZLE_29"
+    },
+    {
+        "theme": {
+            "name": "Cyber Heist",
+            "categories": [
+                "Hackers",
+                "Tools",
+                "Targets",
+                "Motives"
+            ],
+            "items": [
+                [
+                    "Cipher",
+                    "Ghost",
+                    "Nova",
+                    "Apex"
+                ],
+                [
+                    "ZeroDay",
+                    "Phisher",
+                    "Rootkit",
+                    "DDoS"
+                ],
+                [
+                    "BankServer",
+                    "GovtDB",
+                    "SecureGrid",
+                    "CryptoVault"
+                ],
+                [
+                    "Money",
+                    "Chaos",
+                    "Espionage",
+                    "Revenge"
+                ]
+            ]
+        },
+        "themeIdx": 0,
+        "target": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                3,
+                0,
+                1,
+                2
+            ],
+            [
+                0,
+                3,
+                1,
+                2
+            ],
+            [
+                1,
+                3,
+                0,
+                2
+            ]
+        ],
+        "clues": [
+            "Forensics found 'Apex' and 'SecureGrid' on the same network layer.",
+            "Target profiling links 'Cipher' directly to 'DDoS'.",
+            "Forensics found 'BankServer' and 'Chaos' on the same network layer.",
+            "Forensics found 'Ghost' and 'CryptoVault' on the same network layer.",
+            "Target profiling links 'Phisher' directly to 'Money'.",
+            "Target profiling links 'ZeroDay' directly to 'Revenge'.",
+            "Forensics found 'Ghost' and 'Revenge' on the same network layer.",
+            "Target profiling links 'Nova' directly to 'Money'.",
+            "Target profiling links 'GovtDB' directly to 'Money'."
+        ],
+        "masterBountyIdx": 0,
+        "answerVector": [
+            "Cipher",
+            "DDoS",
+            "BankServer",
+            "Chaos"
+        ],
+        "masterBountyName": "Cipher",
+        "id": "PUZZLE_30"
+    }
+]

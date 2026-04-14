@@ -1,10 +1,10 @@
 // App.jsx
-// Main application 
+// Main application
 
-import BinaryLock from "./games/binary-lock/BinaryLock";
+import GameRouter from "./pages/GameRouter";
 
 function App() {
-  return <BinaryLock />;
+  return <GameRouter />;
 }
 
 export default App;

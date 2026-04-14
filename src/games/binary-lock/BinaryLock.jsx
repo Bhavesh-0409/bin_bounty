@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import RulesScreen from "../../components/RulesScreen";
+import Bingo from "../bingo/Bingo";
 import LogicalGrid from "../logical-grid/logical";
 import { rulesText } from "./rules";
 import bgImage from "./binarylock.jpg";
 import "./BinaryLock.css";
 
-function BinaryLock() {
+function BinaryLock({ onComplete }) {
   const [startGame, setStartGame] = useState(false);
   const [showNextGame, setShowNextGame] = useState(false);
   const [answers, setAnswers] = useState({});
@@ -108,12 +109,17 @@ function BinaryLock() {
       setCurrentQuestionIndex((prev) => prev + 1);
       setRevealedClues(1);
     } else {
+      if (onComplete) {
+        onComplete();
+        return;
+      }
+
       setShowNextGame(true);
     }
   };
 
   if (showNextGame) {
-    return <LogicalGrid />;
+    return onComplete ? <Bingo onComplete={onComplete} /> : <Bingo />;
   }
 
   const q = questions[currentQuestionIndex];

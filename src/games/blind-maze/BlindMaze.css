@@ -1,0 +1,192 @@
+.maze-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100vw;
+  color: #00ffcc;
+  background: radial-gradient(circle at center, #0a0f1a 0%, #000 100%);
+  padding: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.maze-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.maze-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #00ffee;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee;
+  text-align: center;
+}
+
+.maze-instructions {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+  opacity: 0.8;
+  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+  text-align: center;
+}
+
+.maze-grid {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(0, 255, 238, 0.3);
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 255, 238, 0.2);
+  padding: 5px;
+  position: relative;
+  max-width: 95vw;
+}
+
+.maze-grid::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.maze-row {
+  display: flex;
+}
+
+.maze-cell {
+  width: clamp(35px, 10vw, 45px);
+  height: clamp(35px, 10vw, 45px);
+  border: 1px solid rgba(0, 255, 238, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.player-cell {
+  background-color: #00ffcc;
+  box-shadow: 0 0 15px #00ffcc;
+  border-radius: 2px;
+}
+
+.end-cell {
+  background-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff;
+  border-radius: 2px;
+}
+
+.player-avatar,
+.end-avatar {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  user-select: none;
+}
+
+.mobile-controls {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.control-row {
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  width: 55px;
+  height: 55px;
+  background: rgba(0, 255, 238, 0.1);
+  border: 2px solid rgba(0, 255, 238, 0.5);
+  color: #00ffee;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 0 0 10px rgba(0, 255, 238, 0.2);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.control-btn:active {
+  background: rgba(0, 255, 238, 0.4);
+  transform: scale(0.9);
+  box-shadow: 0 0 20px rgba(0, 255, 238, 0.6);
+}
+
+.win-message {
+  margin: 1rem 0;
+  text-align: center;
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee;
+  z-index: 10;
+}
+
+.win-message h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.restart-btn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #ff00ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff00ff;
+  transition: all 0.3s;
+}
+
+.restart-btn:hover {
+  background-color: #ff33ff;
+  box-shadow: 0 0 20px #ff00ff;
+}
+
+.shake {
+  animation: shake-anim 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border-color: #ff0055 !important;
+  box-shadow: 0 0 20px #ff0055;
+}
+
+@keyframes shake-anim {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(3px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+  40%, 60% { transform: translate3d(5px, 0, 0); }
+}
