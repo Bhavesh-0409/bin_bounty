@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import RulesScreen from "../../components/RulesScreen";
-import Bingo from "../bingo/Bingo";
-import LogicalGrid from "../logical-grid/logical";
 import { rulesText } from "./rules";
 import bgImage from "./binarylock.jpg";
 import "./BinaryLock.css";
@@ -19,7 +17,6 @@ function BinaryLock({ onComplete }) {
   const [startGame, setStartGame] = useState(() => {
     return !!localStorage.getItem(`rules_seen_${hashStr(rulesText)}`);
   });
-  const [showNextGame, setShowNextGame] = useState(false);
   const [answers, setAnswers] = useState({});
   const [status, setStatus] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -122,16 +119,9 @@ function BinaryLock({ onComplete }) {
     } else {
       if (onComplete) {
         onComplete();
-        return;
       }
-
-      setShowNextGame(true);
     }
   };
-
-  if (showNextGame) {
-    return onComplete ? <Bingo onComplete={onComplete} /> : <Bingo />;
-  }
 
   const q = questions[currentQuestionIndex];
   const isCorrect = q ? status[q.id] === "correct" : false;
