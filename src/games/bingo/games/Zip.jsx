@@ -142,18 +142,64 @@ export default function Zip({ onComplete, onBack }) {
     e.preventDefault();
     const { x, y } = getPos(e);
     const { r, c } = cellOf(x, y);
-    if (!nodeAt[`${r},${c}`]) return;
-    const num = nodeAt[`${r},${c}`];
-    if (num !== 1) {
-      setStatus("Start from node 1!");
-      return;
-    }
-    const newPath = [{ r, c }];
-    setPath(newPath);
-    draggingRef.current = true;
-    setSolved(false);
-    setStatus("Path length: 1");
-  }, [solved]);
+
+    setPath(prev => {
+      if (prev.length === 0) {
+        if (!nodeAt[`${r},${c}`] || nodeAt[`${r},${c}`] !== 1) {
+          setStatus("Start from node 1!");
+          return prev;
+        }
+        draggingRef.current = true;
+        setSolved(false);
+        setStatus("Path length: 1");
+        return [{ r, c }];
+      }
+
+      const last = prev[prev.length - 1];
+
+      // If clicking the last node, start dragging
+      if (last.r === r && last.c === c) {
+        draggingRef.current = true;
+        return prev;
+      }
+
+      // If clicking the previous node, undo
+      if (prev.length >= 2 && prev[prev.length - 2].r === r && prev[prev.length - 2].c === c) {
+        const next = prev.slice(0, -1);
+        setStatus(`Path length: ${next.length}`);
+        draggingRef.current = true;
+        return next;
+      }
+
+      // If clicking an adjacent cell, move there (tap to play)
+      if (adj(last, { r, c })) {
+        if (inPath(prev, r, c)) return prev;
+        const nextNode = nodeAt[`${r},${c}`];
+        if (nextNode) {
+          const expectedOrder = nodeOrder(prev).length + 1;
+          if (nextNode !== expectedOrder) {
+            setStatus(`Next node should be ${expectedOrder}, not ${nextNode}`);
+            return prev;
+          }
+        }
+        
+        const nextPath = [...prev, { r, c }];
+        if (isComplete(nextPath)) {
+          setStatus("✅ Puzzle solved!");
+          draggingRef.current = false;
+          setSolved(true);
+          setTimeout(() => { onComplete("ZIP"); }, 1000);
+        } else {
+          setStatus(`Path length: ${nextPath.length}`);
+          draggingRef.current = true;
+        }
+        return nextPath;
+      }
+
+      // Ignore arbitrary clicks elsewhere instead of resetting
+      return prev;
+    });
+  }, [solved, onComplete]);
 
   const handleMouseMove = useCallback((e) => {
     if (!draggingRef.current) return;

@@ -5,13 +5,6 @@ import Pinpoint from './games/cross';
 import Zoom from './games/Zoom';
 import Zip from './games/Zip';
 
-const gameTypes = [
-  "ARITH", "ARITH", "ARITH", "ARITH",
-  "PINPOINT", "PINPOINT", "PINPOINT", "PINPOINT",
-  "ZOOM", "ZOOM", "ZOOM", "ZOOM",
-  "ZIP", "ZIP", "ZIP", "ZIP"
-];
-
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -21,13 +14,41 @@ function shuffle(array) {
 }
 
 const generateInitialGrid = () => {
-  const shuffled = shuffle([...gameTypes]);
+  const basePattern = [
+    [0, 0, 1, 2],
+    [1, 1, 2, 3],
+    [2, 2, 3, 0],
+    [3, 3, 0, 1]
+  ];
 
-  return shuffled.map((type, index) => ({
-    id: index,
-    type: type,
-    status: "pending"
-  }));
+  shuffle(basePattern);
+
+  const colOrder = shuffle([0, 1, 2, 3]);
+  const newGrid = basePattern.map(row => colOrder.map(c => row[c]));
+
+  if (Math.random() > 0.5) {
+    for (let i = 0; i < 4; i++) {
+      for (let j = i + 1; j < 4; j++) {
+        const temp = newGrid[i][j];
+        newGrid[i][j] = newGrid[j][i];
+        newGrid[j][i] = temp;
+      }
+    }
+  }
+
+  const types = shuffle(["ARITH", "PINPOINT", "ZOOM", "ZIP"]);
+  
+  const finalFlat = [];
+  for (let r = 0; r < 4; r++) {
+    for (let c = 0; c < 4; c++) {
+      finalFlat.push({
+        id: r * 4 + c,
+        type: types[newGrid[r][c]],
+        status: "pending"
+      });
+    }
+  }
+  return finalFlat;
 };
 
 export default function Bingo({ onComplete }) {

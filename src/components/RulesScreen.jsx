@@ -4,6 +4,7 @@ import "./rules.css";
 function RulesScreen({ rules, onStart }) {
   const [displayedText, setDisplayedText] = useState("");
   const [index, setIndex] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(20);
 
   // typing effect
   useEffect(() => {
@@ -16,14 +17,13 @@ function RulesScreen({ rules, onStart }) {
     }
   }, [index, rules]);
 
-  // auto start after 30 sec
+  // 20 second mandatory read time
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onStart();
-    }, 30000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft((prev) => prev - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [timeLeft]);
 
   return (
     <div className="rules-container">
@@ -31,8 +31,12 @@ function RulesScreen({ rules, onStart }) {
         <h1>MISSION BRIEF</h1>
         <p className="rules-text">{displayedText}</p>
 
-        <button className="start-btn" onClick={onStart}>
-          START
+        <button 
+          className="start-btn" 
+          onClick={() => timeLeft === 0 && onStart()}
+          style={timeLeft > 0 ? { opacity: 0.5, cursor: "not-allowed" } : {}}
+        >
+          {timeLeft > 0 ? `INITIALIZING... (${timeLeft}s)` : "START"}
         </button>
       </div>
     </div>

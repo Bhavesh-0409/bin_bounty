@@ -29,18 +29,42 @@ function oneDiff(a, b) {
 const PHASES = { CLUE: "clue", LADDER: "ladder", DONE: "done" };
 
 export default function Cross({ onComplete, onBack }) {
-  const [phase, setPhase] = useState(PHASES.CLUE);
-  const [clueItems] = useState(() =>
-    shuffle(PUZZLE.clues.map((c, i) => ({ ...c, id: i, input: Array(4).fill("") })))
-  );
-  const [guesses, setGuesses] = useState(() =>
-    Object.fromEntries(clueItems.map((c) => [c.id, Array(4).fill("")]))
-  );
+  const [phase, setPhase] = useState(() => {
+    const saved = localStorage.getItem("crossclimb_phase");
+    return saved ? JSON.parse(saved) : PHASES.CLUE;
+  });
+
+  const [clueItems, setClueItems] = useState(() => {
+    const saved = localStorage.getItem("crossclimb_clues");
+    if (saved) return JSON.parse(saved);
+    return shuffle(PUZZLE.clues.map((c, i) => ({ ...c, id: i, input: Array(4).fill("") })));
+  });
+
+  const [guesses, setGuesses] = useState(() => {
+    const saved = localStorage.getItem("crossclimb_guesses");
+    if (saved) return JSON.parse(saved);
+    return Object.fromEntries(
+      PUZZLE.clues.map((_, i) => [i, Array(4).fill("")])
+    );
+  });
+
   const [activeClue, setActiveClue] = useState(null);
   const [activeCell, setActiveCell] = useState(null);
-  const [order, setOrder] = useState(() => clueItems.map((c) => c.id));
+
+  const [order, setOrder] = useState(() => {
+    const saved = localStorage.getItem("crossclimb_order");
+    if (saved) return JSON.parse(saved);
+    return PUZZLE.clues.map((_, i) => i);
+  });
+
   const [dragOver, setDragOver] = useState(null);
   const [dragId, setDragId] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
+
+  useEffect(() => { localStorage.setItem("crossclimb_phase", JSON.stringify(phase)); }, [phase]);
+  useEffect(() => { localStorage.setItem("crossclimb_clues", JSON.stringify(clueItems)); }, [clueItems]);
+  useEffect(() => { localStorage.setItem("crossclimb_guesses", JSON.stringify(guesses)); }, [guesses]);
+  useEffect(() => { localStorage.setItem("crossclimb_order", JSON.stringify(order)); }, [order]);
   const [ladderValid, setLadderValid] = useState(false);
   const keyboardRef = useRef(null);
 
@@ -148,7 +172,7 @@ export default function Cross({ onComplete, onBack }) {
               return (
                 <div
                   key={item.id}
-                  onClick={() => { if (!correct) { setActiveClue(item.id); setActiveCell(0); } }}
+                  onClick={() => { if (!correct) setActiveClue(item.id); }}
                   style={{
                     display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", marginBottom: 12,
                     borderRadius: 8,
@@ -159,14 +183,36 @@ export default function Cross({ onComplete, onBack }) {
                     transition: "all 0.15s",
                   }}
                 >
-                  <div style={{ display: "flex", gap: 8, flex: 1 }}>
+                  <div style={{ position: "relative", display: "flex", gap: 8, flex: 1 }}>
+                    {!correct && (
+                      <input
+                        value={guesses[item.id].join("")}
+                        onChange={(e) => {
+                          const val = e.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4);
+                          const arr = Array(4).fill("");
+                          for (let i = 0; i < val.length; i++) arr[i] = val[i];
+                          setGuesses(g => ({ ...g, [item.id]: arr }));
+                          setActiveCell(val.length < 4 ? val.length : 3);
+                        }}
+                        onFocus={() => {
+                          setActiveClue(item.id);
+                          const val = guesses[item.id].join("");
+                          setActiveCell(val.length < 4 ? val.length : 3);
+                        }}
+                        style={{
+                          position: "absolute", top: 0, left: 0, width: "100%", height: "100%",
+                          opacity: 0, zIndex: 10, cursor: "pointer"
+                        }}
+                        autoCapitalize="characters" autoComplete="off" autoCorrect="off" spellCheck="false"
+                      />
+                    )}
                     {[0, 1, 2, 3].map((ci) => {
                       const cellActive = active && activeCell === ci;
                       const val = guesses[item.id][ci];
                       return (
                         <div
                           key={ci}
-                          onClick={(e) => { e.stopPropagation(); if (!correct) { setActiveClue(item.id); setActiveCell(ci); } }}
+                          onClick={(e) => { e.stopPropagation(); if (!correct) { setActiveClue(item.id); } }}
                           style={{
                             width: 44, height: 48,
                             border: cellActive ? "2px solid #00ffe0" : correct ? "2px solid #00ff00" : "1px solid rgba(0,255,224,0.5)",
@@ -255,9 +301,23 @@ export default function Cross({ onComplete, onBack }) {
               return (
                 <DraggableRow
                   key={id} id={id} word={w}
-                  isDragging={dragId === id} isDragOver={dragOver === id} valid={rowValid}
+                  isDragging={dragId === id} isDragOver={dragOver === id} isSelected={selectedId === id} valid={rowValid}
                   onDragStart={() => setDragId(id)}
                   onDragOver={(e) => { e.preventDefault(); setDragOver(id); }}
+                  onClick={() => {
+                    if (selectedId === null) {
+                      setSelectedId(id);
+                    } else if (selectedId === id) {
+                      setSelectedId(null);
+                    } else {
+                      const newOrder = [...order];
+                      const from = newOrder.indexOf(selectedId);
+                      const to = newOrder.indexOf(id);
+                      [newOrder[from], newOrder[to]] = [newOrder[to], newOrder[from]];
+                      setOrder(newOrder);
+                      setSelectedId(null);
+                    }
+                  }}
                   onDrop={() => {
                     if (dragId !== null && dragId !== id) {
                       const newOrder = [...order];
@@ -323,7 +383,7 @@ export default function Cross({ onComplete, onBack }) {
   );
 }
 
-function DraggableRow({ id, word, isDragging, isDragOver, valid, onDragStart, onDragOver, onDrop, onDragEnd }) {
+function DraggableRow({ id, word, isDragging, isDragOver, isSelected, valid, onDragStart, onDragOver, onDrop, onDragEnd, onClick }) {
   return (
     <div
       draggable
@@ -331,14 +391,15 @@ function DraggableRow({ id, word, isDragging, isDragOver, valid, onDragStart, on
       onDragOver={onDragOver}
       onDrop={onDrop}
       onDragEnd={onDragEnd}
+      onClick={onClick}
       style={{
         display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", marginBottom: 10, width: "100%",
         borderRadius: 8,
-        border: isDragOver ? "2px dashed #00ffe0" : valid ? "2px solid #00ff00" : "2px solid #ff00e0",
-        background: isDragging ? "rgba(0, 255, 224, 0.05)" : isDragOver ? "rgba(0, 255, 224, 0.1)" : "transparent",
+        border: isSelected ? "2px solid #fff" : isDragOver ? "2px dashed #00ffe0" : valid ? "2px solid #00ff00" : "2px solid #ff00e0",
+        background: isSelected ? "rgba(255, 255, 255, 0.1)" : isDragging ? "rgba(0, 255, 224, 0.05)" : isDragOver ? "rgba(0, 255, 224, 0.1)" : "transparent",
         opacity: isDragging ? 0.5 : 1,
-        cursor: "grab", userSelect: "none", transition: "all 0.12s",
-        boxShadow: valid ? "0 0 10px rgba(0, 255, 0, 0.2)" : "inset 0 0 5px rgba(255, 0, 224, 0.1)"
+        cursor: "pointer", userSelect: "none", transition: "all 0.12s",
+        boxShadow: isSelected ? "0 0 15px rgba(255, 255, 255, 0.5)" : valid ? "0 0 10px rgba(0, 255, 0, 0.2)" : "inset 0 0 5px rgba(255, 0, 224, 0.1)"
       }}
     >
       <div style={{ fontSize: '20px', color: '#00ffe0', opacity: 0.8, padding: '0 5px' }}>⣿</div>

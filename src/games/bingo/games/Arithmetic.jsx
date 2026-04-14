@@ -81,7 +81,7 @@ export default function Arithmetic({ onComplete, onBack }) {
       }}>
         <p style={{ fontSize: '1.2rem', marginBottom: '20px' }}>Puzzle 1: Match the target value <strong>{target1}</strong></p>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '10px', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', flexWrap: 'wrap' }}>
           <span>8</span>
           <select className="cyber-select" value={p1_op1} onChange={(e) => setP1Op1(e.target.value)} disabled={answers.p1}>
             {operators.map(o => <option key={o} value={o}>{o}</option>)}
@@ -113,7 +113,7 @@ export default function Arithmetic({ onComplete, onBack }) {
       }}>
         <p style={{ fontSize: '1.2rem', marginBottom: '20px' }}>Puzzle 2: Match the target value <strong>{target2}</strong></p>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '10px', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', flexWrap: 'wrap' }}>
           <span>20</span>
           <select className="cyber-select" value={p2_op1} onChange={(e) => setP2Op1(e.target.value)} disabled={answers.p2}>
             {operators.map(o => <option key={o} value={o}>{o}</option>)}

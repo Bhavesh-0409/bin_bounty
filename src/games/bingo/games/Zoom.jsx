@@ -104,7 +104,7 @@ export default function Zoom({ onComplete, onBack }) {
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '15px', maxWidth: '600px', width: '100%' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '15px', maxWidth: '600px', width: '100%' }}>
         <input
           className="cyber-input"
           type="text"

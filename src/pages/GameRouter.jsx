@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RulesScreen from "../components/RulesScreen";
 
 import BinaryLock from "../games/binary-lock/BinaryLock";
@@ -18,7 +18,14 @@ import Deceptive from "../games/deceptive/Deceptive";
 // rule->game natively handled.
 
 function GameRouter() {
-  const [screen, setScreen] = useState("binary-lock");
+  const [screen, setScreen] = useState(() => {
+    const saved = localStorage.getItem("app_global_screen");
+    return saved ? JSON.parse(saved) : "binary-lock";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("app_global_screen", JSON.stringify(screen));
+  }, [screen]);
 
   if (screen === "binary-lock") {
     // BinaryLock natively handles rule screen internally on mount.
