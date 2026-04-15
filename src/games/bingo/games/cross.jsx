@@ -180,7 +180,13 @@ export default function Cross({ onComplete, onBack, onShowRules }) {
               return (
                 <div
                   key={item.id}
-                  onClick={() => { if (!correct) setActiveClue(item.id); }}
+                  onClick={() => {
+                    if (!correct) {
+                      setActiveClue(item.id);
+                      const firstEmpty = guesses[item.id].findIndex(v => v === "");
+                      setActiveCell(firstEmpty === -1 ? 3 : firstEmpty);
+                    }
+                  }}
                   style={{
                     display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", marginBottom: 12,
                     borderRadius: 8,
@@ -191,36 +197,20 @@ export default function Cross({ onComplete, onBack, onShowRules }) {
                     transition: "all 0.15s",
                   }}
                 >
-                  <div style={{ position: "relative", display: "flex", gap: 8, flex: 1 }}>
-                    {!correct && (
-                      <input
-                        value={guesses[item.id].join("")}
-                        onChange={(e) => {
-                          const val = e.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4);
-                          const arr = Array(4).fill("");
-                          for (let i = 0; i < val.length; i++) arr[i] = val[i];
-                          setGuesses(g => ({ ...g, [item.id]: arr }));
-                          setActiveCell(val.length < 4 ? val.length : 3);
-                        }}
-                        onFocus={() => {
-                          setActiveClue(item.id);
-                          const val = guesses[item.id].join("");
-                          setActiveCell(val.length < 4 ? val.length : 3);
-                        }}
-                        style={{
-                          position: "absolute", top: 0, left: 0, width: "100%", height: "100%",
-                          opacity: 0, zIndex: 10, cursor: "pointer"
-                        }}
-                        autoCapitalize="characters" autoComplete="off" autoCorrect="off" spellCheck="false"
-                      />
-                    )}
+                  <div style={{ position: "relative", display: "flex", gap: 8, flex: 1, justifyContent: "center" }}>
                     {[0, 1, 2, 3].map((ci) => {
                       const cellActive = active && activeCell === ci;
                       const val = guesses[item.id][ci];
                       return (
                         <div
                           key={ci}
-                          onClick={(e) => { e.stopPropagation(); if (!correct) { setActiveClue(item.id); } }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!correct) {
+                              setActiveClue(item.id);
+                              setActiveCell(ci);
+                            }
+                          }}
                           style={{
                             width: 44, height: 48,
                             border: cellActive ? "2px solid #00ffe0" : correct ? "2px solid #00ff00" : "1px solid rgba(0,255,224,0.5)",
@@ -259,23 +249,31 @@ export default function Cross({ onComplete, onBack, onShowRules }) {
             </div>
 
             {/* Keyboard */}
-            <div ref={keyboardRef} style={{ marginBottom: 20 }}>
+            <div ref={keyboardRef} style={{ marginBottom: 20, width: "100%", padding: "0 5px", boxSizing: "border-box" }}>
               {KEYS.map((row, ri) => (
-                <div key={ri} style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 8 }}>
-                  {row.map((k) => (
-                    <button
-                      key={k}
-                      onMouseDown={(e) => { e.preventDefault(); handleKey(k === "ENTER" ? "ENTER" : k); }}
-                      className="cyber-btn"
-                      style={{
-                        height: 48, minWidth: k.length > 1 ? 64 : 40,
-                        padding: "0 8px", background: k === "ENTER" ? "rgba(0, 255, 224, 0.2)" : "transparent",
-                        fontSize: k.length > 1 ? 12 : 16, fontWeight: 700,
-                      }}
-                    >
-                      {k === "BACKSPACE" ? "⌫" : k}
-                    </button>
-                  ))}
+                <div key={ri} style={{ display: "flex", justifyContent: "center", gap: "4px", marginBottom: "6px", width: "100%" }}>
+                  {row.map((k) => {
+                    const isSpecial = k.length > 1;
+                    return (
+                      <button
+                        key={k}
+                        onClick={() => handleKey(k === "ENTER" ? "ENTER" : k)}
+                        className="cyber-btn"
+                        style={{
+                          height: "45px",
+                          flex: isSpecial ? 1.5 : 1,
+                          padding: 0,
+                          minWidth: 0,
+                          background: k === "ENTER" ? "rgba(0, 255, 224, 0.2)" : "transparent",
+                          fontSize: isSpecial ? "0.8rem" : "1.1rem",
+                          fontWeight: 700,
+                          display: "flex", alignItems: "center", justifyContent: "center"
+                        }}
+                      >
+                        {k === "BACKSPACE" ? "⌫" : k}
+                      </button>
+                    );
+                  })}
                 </div>
               ))}
             </div>

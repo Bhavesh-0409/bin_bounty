@@ -13,18 +13,18 @@ const controlMaps = [
         ArrowRight: { row: 0, col: 1 },
     },
     {
+        // 90 degrees rotated (Clockwise)
+        ArrowUp: { row: 0, col: 1 },
+        ArrowDown: { row: 0, col: -1 },
+        ArrowLeft: { row: -1, col: 0 },
+        ArrowRight: { row: 1, col: 0 },
+    },
+    {
         // Opposite
         ArrowUp: { row: 1, col: 0 },
         ArrowDown: { row: -1, col: 0 },
         ArrowLeft: { row: 0, col: 1 },
         ArrowRight: { row: 0, col: -1 },
-    },
-    {
-        // 90 degrees rotated
-        ArrowUp: { row: 0, col: 1 },
-        ArrowDown: { row: 0, col: -1 },
-        ArrowLeft: { row: -1, col: 0 },
-        ArrowRight: { row: 1, col: 0 },
     },
 ];
 
