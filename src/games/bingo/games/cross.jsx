@@ -257,17 +257,29 @@ export default function Cross({ onComplete, onBack, onShowRules }) {
                     return (
                       <button
                         key={k}
-                        onClick={() => handleKey(k === "ENTER" ? "ENTER" : k)}
-                        className="cyber-btn"
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleKey(k === "ENTER" ? "ENTER" : k);
+                          e.currentTarget.blur();
+                        }}
                         style={{
                           height: "45px",
                           flex: isSpecial ? 1.5 : 1,
                           padding: 0,
                           minWidth: 0,
-                          background: k === "ENTER" ? "rgba(0, 255, 224, 0.2)" : "transparent",
-                          fontSize: isSpecial ? "0.8rem" : "1.1rem",
+                          background: k === "ENTER" ? "rgba(0, 255, 224, 0.2)" : "rgba(0, 255, 224, 0.05)",
+                          border: "1px solid rgba(0, 255, 224, 0.4)",
+                          borderRadius: "6px",
+                          color: "#00ffe0",
+                          fontSize: isSpecial ? "0.65rem" : "1.1rem",
                           fontWeight: 700,
-                          display: "flex", alignItems: "center", justifyContent: "center"
+                          letterSpacing: "0px",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          cursor: "pointer",
+                          userSelect: "none",
+                          textShadow: "0 0 5px rgba(0, 255, 224, 0.4)",
+                          outline: "none"
                         }}
                       >
                         {k === "BACKSPACE" ? "⌫" : k}
