@@ -120,7 +120,6 @@ const BlindMaze = ({ onComplete }) => {
       {gameStatus === "won" && (
         <div className="win-message">
           <h2>YOU WON!</h2>
-          <button className="restart-btn" onClick={restartGame}>Re-Run Protocol</button>
         </div>
       )}
 
